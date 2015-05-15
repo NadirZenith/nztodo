@@ -2,11 +2,11 @@ NelmioApiDocBundle:
   resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
   prefix:   /api/doc
 
-_api_todo:
-    resource: "@NzTodoBundle/Controller/TodoController.php"
-    type:     rest
-
 _app_todo:
     resource: "@NzTodoBundle/Controller/AppController.php"
     type:     annotation
-    prefix:   /app
+    prefix:   /web
+
+_api_todo:
+    resource: "@NzTodoBundle/Controller/TodoController.php"
+    type:     rest

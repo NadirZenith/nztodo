@@ -29,5 +29,6 @@ var app = app || {};
     });
 
     app.TodoRouter = new TodoRouter();
+    /*Backbone.history.start({pushState: true});*/
     Backbone.history.start();
 })(RegionManager);

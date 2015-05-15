@@ -5,6 +5,7 @@ namespace Nz\TodoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use FOS\RestBundle\Controller\Annotations;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -23,26 +24,18 @@ use FOS\RestBundle\View\View;
  */
 class AppController extends Controller
 {
-    /*
-     * Get main app
-     *
-     * @Annotations\QueryParam(name="offset", requirements="\d+", nullable=true, description="Offset from which to start listing todos.")
-     * @Annotations\QueryParam(name="limit", requirements="\d+", default="5", description="How many todos to return.")
-     *
-     * @Annotations\View()
-     *
-     * @param Request               $request      the request object
-     * @param ParamFetcherInterface $paramFetcher param fetcher service
-     *
-     * @return array
-     */
 
     /**
      * @Route("/", name="app_index")
-     * @Template()
+     * @Template
+     * Template("NzTodoBundle:App:hello.html.twig")
      */
-    public function mainAppAction(Request $request, ParamFetcherInterface $paramFetcher)
+    public function mainAppAction(Request $request)
     {
         return array();
+
+        //return $this->render('NzTodoBundle:App:hello.html.twig', ['name' => 'tino']);
+
+        /*return array(['name' => 'tino']);*/
     }
 }
