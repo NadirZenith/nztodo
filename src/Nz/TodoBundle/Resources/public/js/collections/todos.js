@@ -7,7 +7,7 @@ var app = app || {};
     var Todos = Backbone.Collection.extend({
         // Reference to this collection's model.
         model: app.Todo,
-        url: 'http://nztodo.app.dev/app_dev.php/todos',
+        url: '/todos',
         parse: function (response) {
             return response.todos;
         }
