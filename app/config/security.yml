@@ -11,7 +11,7 @@ security:
         in_memory:
             memory:
                 users:
-                    restapi:  { password: secretpw, roles: [ 'ROLE_API' ] }
+                    tino:  { password: tino, roles: [ 'ROLE_API' ] }
 
     firewalls:
         dev:
@@ -20,7 +20,7 @@ security:
 
         main:
             pattern: ^/
-            anonymous: ~
+            #anonymous: ~
             stateless:  true
             http_basic:
-                realm: "Demo REST API (username: restapi, password: secretpw)"
+                realm: "dev todo app"
