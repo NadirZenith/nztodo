@@ -1,0 +1,11 @@
+#todo-list .todo a.todo-remove {
+    /*display: none;*/
+    opacity: 0.3;
+}
+#todo-list .todo:hover a.todo-remove {
+    /*display: block;*/
+    opacity: 1;
+}
+#todo-list .todo a.todo-remove:hover {
+    color: red !important;
+}

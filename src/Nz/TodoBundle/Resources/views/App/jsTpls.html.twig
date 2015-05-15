@@ -1,0 +1,44 @@
+<script type="text/template" id="todo-tpl">
+    <div class="todo item">
+        <a class="left floated ui todo-done">
+            <i class="toggleCompleted icon toggle <% if (todo.complete) { %> on <% } else { %> off <% }  %>"></i>
+        </a>
+        <a class="right floated ui todo-remove">
+            <i class="icon ban"></i>
+        </a>
+        <a class="left floated todo-view" href="#todo/<%-todo.id %>">
+            <div class="description"><%-todo.task %></div>
+        </a>
+    </div>
+</script>
+{#<div class="right floated date">Sep 14, 2013</div>#}
+<script type="text/template" id="todo-form-tpl">
+    <form id="form-todo" class="ui form segment" action="http://nztodo.app.dev/app_dev.php/todos" method="POST" novalidate="">
+            <h4 class="ui dividing header">Create new todo</h4>
+            <div id="todo">
+                <div class="field">  
+                    <label for="todo_task" class="required">Task</label>
+    {#<input type="text" id="todo_task" name="todo[task]" required="required" maxlength="255">#}
+                    <input type="text" id="todo_task" name="task" required="required" maxlength="255">
+                </div>
+            </div>
+            <div class="ui hidden divider"></div>
+            <input id="save-todo" class="ui submit button" type="submit" value="add todo">
+            <a id="cancel-creation" class="ui submit button">Cancel</a>
+    </form>
+</script>
+<script type="text/template" id="todo-detail-tpl">
+    <h1 class="ui header"><%-todo.task %></h1>
+</script>
+{#
+            <a class="ui label">Unread</a>
+            <a class="ui label">Comics</a>
+
+<div class="ui divider"></div>
+<p>So there's this video game coming out Tuesday called Grand Theft Auto 5. Don't know if you've heard of it. Anyways, it's all about crime and gangs and some roughneck ne'er-do-wells, so I thought this would be the perfect time to talk about times when we've been... well, less than perfect.</p>
+<p>When I was a young'un, I was a frequent visitor to the local swimming pool. I was also a frequent lover of AirHeads candy, which the pool happened to sell. Waiting, watching, stalking the counter like a big cat in the savannah, I waited for the perfect opportunity to strike. While the lifeguards were busy, I snuck through the gate, reached up and took both cherry and "mystery white" AirHeads. I quickly ran out to the sidewalk and reveled in my sweet, delicious victory... for all of ten seconds, before I felt guilty enough to sneak back in and return the .20 worth of candy I had stolen.</p>
+<p>While you confess your crimes - hopefully minor, and nothing you can be persecuted for - take a moment to enjoy this week's webcomics, and vote for your favorite after the jump.</p>
+<div class="ui divider"></div>
+<div class="ui basic button">Save</div>
+<div class="ui basic button">Delete</div>
+#}

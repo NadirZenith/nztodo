@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="nztodo.form.todo">Nz\TodoBundle\Form\Type\TodoType</parameter>
+        <parameter key="nztodo.repository.class">Nz\TodoBundle\Entity\TodoRepository</parameter>
+        <!--<parameter key="nztodo.manager.class">Nz\TodoBundle\Entity\TodoManager</parameter>-->
+    </parameters>
+
+    <services>
+        <service 
+            id="nztodo.repository" 
+            class="%nztodo.repository.class%"
+            factory-service="doctrine.orm.default_entity_manager" 
+            factory-method="getRepository">
+            <argument>NzTodoBundle:Todo</argument>
+        </service>
+        
+        <!--  FORMS  -->
+        <service id="nz.form.type.todo" class="%nztodo.form.todo%" public="true">
+            <tag name="form.type" alias="todo" />
+        </service>
+    </services>
+</container>

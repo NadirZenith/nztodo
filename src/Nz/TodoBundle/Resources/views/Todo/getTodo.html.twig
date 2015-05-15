@@ -1,0 +1,21 @@
+{% extends "NzTodoBundle::layout.html.twig" %}
+
+{% block title %}
+    Symfony - Todo
+{% endblock %}
+
+{% block content_header  %}
+{% endblock %}
+{% block content_header_more  %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Todo #{{ id }}</h1>
+
+    <p>{{ todo }}</p>
+    <p>
+        <a class="ui button" href="{{ path('remove_todos', {'id': id}) }}">{{ 'todo.remove.link'|trans({}, 'NzTodoBundle') }}</a>
+        <a class="ui button" href="{{ path('edit_todos', {'id': id}) }}">{{ 'todo.edit.link'|trans({}, 'NzTodoBundle') }}</a>
+    </p>
+    <a class="ui button primary" href="{{ path('get_todos') }}">{{ 'todo.list.link'|trans({}, 'NzTodoBundle') }}</a> 
+{% endblock %}

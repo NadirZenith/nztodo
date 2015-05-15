@@ -1,0 +1,27 @@
+{% extends "NzTodoBundle::layout.html.twig" %}
+
+{% block title %}
+    New todo - NZ 
+{% endblock %}
+
+{% block content_header  %}
+{% endblock %}
+{% block content_header_more  %}
+{% endblock %}
+
+{% block content %}
+
+    {%  if (form is defined) %}
+        <form class="ui form segment" action="{{ url('post_todos') }}" method="POST" {{ form_enctype(form) }} novalidate>
+            <h4 class="ui dividing header">{{ 'todo.new.headline'|trans({}, 'NzTodoBundle') }}</h4>
+            {% form_theme form 'NzTodoBundle:Form:semantic_layout.html.twig' %}
+            {{ form_widget(form) }}
+
+            <div class="ui hidden divider"></div>
+
+            <input class="ui submit button" type="submit" value="{% trans from 'NzTodoBundle' %}todo.new.submit{% endtrans %}">
+        </form>
+    {% endif %}
+    <a class="ui button primary" href="{{ path('get_todos') }}">{{ 'todo.list.link'|trans({}, 'NzTodoBundle') }}</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "NzTodoBundle::base.html.twig" %}
+
+{% block title %}
+    Nz Todo Bundle
+{% endblock %}
+
+{% block body %}
+    {% block content_header %}
+        <div class="ui large inverted vertical sidebar menu">
+            <a class="active item">
+                Todos <span class="ui label">{%if data.todos is defined %} {{data.todos|length}}{% endif %}</span>
+            </a>
+            <a class="item" href="{{ path('nelmio_api_doc_index') }}">
+                {{ 'api.doc.link'|trans({}, 'NzTodoBundle') }}
+            </a>
+        </div>
+    {% endblock %}
+
+    <div class="ui centered divided two column padded grid">
+        <div class="column">
+            {% block content_header_more %}
+                <div class="ui left floated launch icon button">
+                    <i class="sidebar icon"></i>
+                </div>
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "NzTodoBundle::layout.html.twig" %}
+
+{% block title  %}
+    Symfony - Todos
+{% endblock %}
+
+{% block content_header_more %}
+    {{parent()}}
+    <a class="ui right floated button primary" href="{{ path('new_todo') }}">
+        <i class="add icon"></i> 
+        {{ 'todo.new.link'|trans({}, 'NzTodoBundle') }}
+    </a>
+    <div class="ui secondary pointing filter menu">
+        <a class="active red item" data-tab="incomplete">Incomplete</a>
+        <a class="blue item" data-tab="done">Done</a>
+        <a class="green item" data-tab="all">All</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {#<h1 class="title">{{ 'todo.list.headline'|trans({}, 'NzTodoBundle') }}</h1>#}
+    {#    
+        <p>
+            {{ 'todo.offset'|trans({}, 'NzTodoBundle') }}: {{ data.offset ?: '-' }}, {{ 'todo.limit'|trans({}, 'NzTodoBundle') }}: {{ data.limit }}
+        </p>
+    #}
+    {#{{dump(data)}}#}
+
+
+    <div class="ui active tab" data-tab="incomplete">
+        <div class="ui very relaxed divided link list">
+            {% for todo in data.todos %}
+                {#{{dump(todo)}}#}
+                <div class="item">
+                    <a class="left floated ui todo-done">
+                        <i class="icon toggle{% if todo.complete %} on{%else%} off{% endif%}"></i>
+                    </a>
+                    <a class="" href="{{ path('get_todo', {'id': todo.id}) }}">
+                        <div class="right floated date">Sep 14, 2013</div>
+                        <div class="description">{{ todo.task }}</div>
+                    </a>
+                </div>
+            {% else %}
+                <div class="active item">
+                    <div class="description">{{ 'todo.list.empty'|trans({}, 'NzTodoBundle') }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="ui divider"></div>
+
+    <div class="current">Showing <b>6</b> of 213</div>
+
+    <div class="ui text menu">
+        <a class="icon item"><i class="icon left chevron"></i></a>
+        <a class="active item">1</a>
+        <a class="item">2</a>
+        <div class="disabled item">...</div>
+        <a class="item">10</a>
+        <a class="item">11</a>
+        <a class="item">12</a>
+        <a class="icon item"><i class="icon right chevron"></i></a>
+    </div>
+{% endblock %}

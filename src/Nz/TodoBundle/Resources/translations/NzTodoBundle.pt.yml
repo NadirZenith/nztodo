@@ -1,0 +1,20 @@
+todo:
+  list:
+    link: voltar a lista de todos
+    headline: Todos disponiveis
+    empty: Não foram encontrados todos
+  new:
+    link: criar novo todo
+    headline: Criar novo todo
+    submit: adicionar todo
+  edit:
+    link: editar
+    headline: Editar todo %id%
+    submit: actualizar todo
+  remove:
+    link: remover
+  offset: pagina
+  limit: limite
+api:
+  doc:
+    link: API documentacão

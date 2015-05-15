@@ -1,0 +1,79 @@
+{% extends "NzTodoBundle::base.html.twig" %}
+
+{% block title  %}
+    Symfony - Todos
+{% endblock %}
+{% block head %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="ui large inverted vertical sidebar menu">
+        <a class="active item" href="{{ path('app_index') }}">
+            Todos {%if data.todos is defined %} <span class="ui label"> {{data.todos|length}} </span> {% endif %}
+        </a>
+        <a class="item" href="{{ path('nelmio_api_doc_index') }}">
+            {{ 'api.doc.link'|trans({}, 'NzTodoBundle') }}
+        </a>
+    </div>
+
+    <div id="main" class="ui divided two column padded grid">
+        {# left column #}
+        <div id="list-view"  class="left column">
+            <div class="ui left floated launch icon button">
+                <i class="sidebar icon"></i>
+            </div>
+{#            
+#}
+            <a id="new-todo" class="ui right floated button primary" href="#new-todo">
+                <i class="add icon"></i> 
+                {{ 'todo.new.link'|trans({}, 'NzTodoBundle') }}
+            </a>
+            {# TABS MENU #}
+            <div class="ui secondary pointing filter menu">
+                <a class="active red item" data-tab="incomplete">Incomplete</a>
+                <a class="blue item" data-tab="done">Done</a>
+                <a class="green item" data-tab="all">All</a>
+            </div>
+{#            
+#}
+            {# TAB #}
+            <div class="ui active tab" data-tab="incomplete">
+                <div id="todo-list" class=" ui very relaxed divided link list">
+                </div>
+            </div>
+            {# TAB #}
+            <div class="ui tab" data-tab="done">
+                <div class="todo-list-done ui very relaxed divided link list">
+                </div>
+            </div>
+            {# TAB #}
+            <div class="ui tab" data-tab="all">
+                <div class="todo-list-all ui very relaxed divided link list">
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+            {# counter #}
+            {#       IMPLEMENT INFINITE SCROLL     #}
+
+        </div>
+        <div id="detail-view" class="right column">
+
+        </div>
+    </div>
+
+    {{ include('NzTodoBundle:App:jsTpls.html.twig') }}
+
+    <script src="{{ asset('bundles/nztodo/js/extra/region-manager.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/extra/helpers.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/models/todo.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/collections/todos.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/views/todo-view.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/views/todo-form-view.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/views/todo-list-view.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/views/todo-app-view.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/routers/router.js', absolute=true) }}"></script>
+    <script src="{{ asset('bundles/nztodo/js/app.js', absolute=true) }}"></script>
+{% endblock %}

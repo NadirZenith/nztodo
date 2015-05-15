@@ -1,0 +1,29 @@
+{% extends "NzTodoBundle::layout.html.twig" %}
+
+{% block title %}
+    Edit todo - NZ
+{% endblock %}
+
+{% block content_header  %}
+{% endblock %}
+{% block content_header_more  %}
+{% endblock %}
+
+{% block content %}
+    {%  if (form is defined) %}
+        <form class="ui form segment" action="{{ url('put_todos', {'id': id}) }}" method="POST" {{ form_enctype(form) }} novalidate>
+            <h4 class="title">{{ 'todo.edit.headline'|trans({'%id%': id}, 'NzTodoBundle') }}</h4>
+            <input type="hidden" name="_method" value="put" />
+            {% form_theme form 'NzTodoBundle:Form:semantic_layout.html.twig' %}
+            {{ form_widget(form) }}
+
+            <div class="ui hidden divider"></div>
+
+            <input class="ui submit button" type="submit" value="{% trans from 'NzTodoBundle' %}todo.edit.submit{% endtrans %}">
+
+            <a class="ui button" href="{{ path('remove_todos', {'id': id}) }}">{{ 'todo.remove.link'|trans({}, 'NzTodoBundle') }}</a>
+        </form>
+    {% endif %}
+    <a class="ui button primary" href="{{ path('get_todos') }}">{{ 'todo.list.link'|trans({}, 'NzTodoBundle') }}</a>
+
+{% endblock %}

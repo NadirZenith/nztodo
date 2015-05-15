@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+
+        <link href="{{ asset('bundles/nztodo/css/semantic.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('bundles/nztodo/css/app.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+        <script src="{{ asset('bundles/nztodo/js/semantic.js', absolute=true) }}"></script>
+        <script src="{{ asset('bundles/nztodo/js/app-semantic.js', absolute=true) }}"></script>
+
+
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
