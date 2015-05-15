@@ -21,7 +21,7 @@ var app = app || {};
          * */
         url: function () {
             var path = this.id ? "/" + this.id : "";
-            return "http://nztodo.app.dev/app_dev.php/todos" + path;
+            return "/todos" + path;
             /*return "http://nztodo.app.dev/app_dev.php/todos/" + this.id;*/
         },
         toJSON: function () {
